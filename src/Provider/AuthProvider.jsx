@@ -43,7 +43,6 @@ const signIn = (email,password)=>{
             setError(error.code)
             setError(error.message)
         })
-        .finally(() => setIsLoading(false))
 };
 
 // logOut
