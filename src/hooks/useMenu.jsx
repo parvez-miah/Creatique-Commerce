@@ -12,7 +12,6 @@ const useMenu = () => {
             .then(res => res.json())
             .then(data =>{
                 setMenu(data);
-              setLoading(true)
               
              
                 });

@@ -24,9 +24,7 @@ const MenuCategory = ({items ,title,img}) => {
             title && <Cover img={img} title="our-menu"></Cover>
             
               }
- {loading && <span className="loading loading-spinner loading-lg"></span>
-          
-          }
+ 
 
                   {
                       items.map(item => <MenuItem
