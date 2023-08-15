@@ -9,32 +9,33 @@ import ContentLoader from "react-content-loader"
 import { Navigation } from 'swiper/modules';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const Testimonials =({props})=> {
+const Testimonials = ({ props }) => {
 
-    const [reviews, setReviews]= useState([]);
-    const [loader, setLoader]= useState(true)
+    const [reviews, setReviews] = useState([]);
+    const [loader, setLoader] = useState(true)
 
-    useEffect(()=>{
+    useEffect(() => {
         fetch('http://localhost:5000/reviews')
-.then(res=>res.json())
-.then(data=> {setReviews(data)
-setLoader(false)
+            .then(res => res.json())
+            .then(data => {
+                setReviews(data)
+                setLoader(false)
 
-})
+            })
 
-    },[]);
-   
-  
+    }, []);
+
+
     return (
 
 
-<section>
+        <section>
 
-<SectionTitle
-subHeading="What our Client Says"
-heading="Testimonials"
->
-</SectionTitle>
+            <SectionTitle
+                subHeading="What our Client Says"
+                heading="Testimonials"
+            >
+            </SectionTitle>
 
             <div className='mb-20 m-10'>
                 <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
@@ -54,11 +55,11 @@ heading="Testimonials"
                         <rect x="0" y="88" rx="3" ry="3" width="178" height="6" />
                         <circle cx="20" cy="20" r="20" />
                     </ContentLoader>}
-                   
+
                     {
                         reviews.map(review => <SwiperSlide
-                        
-                        key={review._id}
+
+                            key={review._id}
                         >
                             <div className=' flex flex-col items-center'>
                                 <FontAwesomeIcon icon="fa-solid fa-quote-left" />
@@ -67,19 +68,19 @@ heading="Testimonials"
                                     value={review.rating}
                                     readOnly
                                 />
-                        <p className='my-10'>{review.details}</p>
-                        <h3 className='text-2xl text-orange-600'>{review.name}</h3>
-                        </div>
-                            
-                        
-                        </SwiperSlide> )
+                                <p className='my-10'>{review.details}</p>
+                                <h3 className='text-2xl text-orange-600'>{review.name}</h3>
+                            </div>
+
+
+                        </SwiperSlide>)
                     }
                 </Swiper>
             </div>
 
-</section>
+        </section>
     )
-  
+
 }
 
 export default Testimonials;

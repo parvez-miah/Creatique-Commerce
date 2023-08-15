@@ -4,6 +4,7 @@ import { AuthContext } from '../../Provider/authProvider';
 import { Helmet } from 'react-helmet-async';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 
 const Login = () => {
@@ -44,7 +45,7 @@ const from = location.state?.from?.pathname || "/"
 
 
   return (
-            <>
+            <div>
             <Helmet>
                 <title>Bistro Boss | Login</title>
             </Helmet>
@@ -76,12 +77,16 @@ const from = location.state?.from?.pathname || "/"
                                 <input className="btn btn-primary" type="submit" value="Login" />
                             </div>
                         </form>
-                        <p><small>New Here? <Link to="/signup">Create an account</Link> </small></p>
+                      <div style={{display:'flex', alignItems:'center', justifyContent:'center', marginTop:'-12px'}}className='my-4'><SocialLogin></SocialLogin></div>
+                        <p><small>New Here? <Link to="/register">Create an account</Link> </small></p>
                        
                     </div>
+                   
                 </div>
+       
             </div>
-        </>
+         
+        </div>
 
   )
 }

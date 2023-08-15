@@ -13,7 +13,7 @@ const MyCart = () => {
 
   let result = cart.reduce((sum, item) => {
     return sum + item.price;
-  }, 10);
+  },0);
 
 
   // Handle Delete Start Here..
@@ -57,7 +57,7 @@ const MyCart = () => {
   }
 
   return (
-    <div>
+    <div className='w-full p-12'>
 
       <Helmet>
         <title>My Cart | Creatique Commerce </title>
@@ -65,7 +65,7 @@ const MyCart = () => {
       </Helmet>
 
 {/* Header Elements */}
-      <div className='uppercase flex justify-evenly space-between height-[60px]'>
+      <div className=' p-12 uppercase flex justify-evenly space-between height-[60px]'>
 
         <h4 className="text-3xl">Total Items : <b>{cart.length}</b></h4>
         <h4 className="text-3xl">Total Price : <b>${result}</b></h4>
@@ -120,7 +120,7 @@ const MyCart = () => {
 
                 </td>
                 <td>
-                  <button onClick={()=> handleDelete(item)} ><FaTrashAlt></FaTrashAlt></button>
+                  <button onClick={() => handleDelete(item)} className="btn btn-ghost bg-red-600  text-white"><FaTrashAlt></FaTrashAlt></button>
 
 
                 </td>
