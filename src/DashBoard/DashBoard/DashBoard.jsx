@@ -3,10 +3,13 @@ import { Helmet } from 'react-helmet-async'
 import { FaBars, FaBorderAll, FaCalendarAlt, FaHome, FaShoppingCart, FaWallet, FaUtensilSpoon, FaUsers } from 'react-icons/fa'
 import { Link, Outlet } from 'react-router-dom'
 import './DashBoard.css'
+import useAdmin from '../../hooks/useAdmin'
 
 const DashBoard = () => {
 
-    const isAdmin = true;
+    // const isAdmin = true;
+
+    const [isAdmin] = useAdmin();
 
     return (
 
@@ -25,6 +28,7 @@ const DashBoard = () => {
                     {
                         isAdmin ? <>
                             <li><Link><FaHome></FaHome> Admin Home</Link></li>
+                            <li><Link to="/"><FaHome></FaHome>Home</Link></li>
                             <li><Link><FaWallet></FaWallet> Payment History</Link></li>
                             <li><Link to="/dashboard/mycart"><FaShoppingCart></FaShoppingCart> My Cart</Link></li>
                             <li><Link><FaUtensilSpoon></FaUtensilSpoon> Add Item</Link></li>
