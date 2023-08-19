@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import useCart from '../../hooks/useCart'
 import { FaTrashAlt } from 'react-icons/fa'
 import Swal from 'sweetalert2'
+import { Link } from 'react-router-dom'
 
 const MyCart = () => {
   // load all data
@@ -11,9 +12,11 @@ const MyCart = () => {
 
   //total price Here
 
-  let result = cart.reduce((sum, item) => {
-    return sum + item.price;
-  },0);
+  const result = cart.reduce((sum, item) =>
+    sum + item.price
+    , 0);
+  
+
 
 
   // Handle Delete Start Here..
@@ -68,8 +71,8 @@ const MyCart = () => {
       <div className=' p-12 uppercase flex justify-evenly space-between height-[60px]'>
 
         <h4 className="text-3xl">Total Items : <b>{cart.length}</b></h4>
-        <h4 className="text-3xl">Total Price : <b>${result}</b></h4>
-        <button className="btn btn-warning btn-small">Pay</button>
+        <h4 className="text-3xl">Total Price : <b>${result.toFixed(2)}</b></h4>
+        <Link to ="/dashboard/pay"><button className="btn btn-warning btn-small">Pay</button></Link>
       </div>
 
 

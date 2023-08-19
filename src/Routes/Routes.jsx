@@ -15,6 +15,7 @@ import AllUsers from "../DashBoard/AllUsers/AllUsers";
 import AdminRoute from "./AdminRoute";
 import AddItem from "../DashBoard/AddItem/AddItem";
 import ManageItems from "../DashBoard/ManageItems/ManageItems";
+import Payment from "../DashBoard/Payment/Payment";
 
 const router = createBrowserRouter([
     {
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
                 path: 'manageitems',
                 element: <AdminRoute><ManageItems></ManageItems></AdminRoute>
             },
+            {
+                path:'pay',
+                element: <Payment></Payment>
+            }
         ]
     }
 

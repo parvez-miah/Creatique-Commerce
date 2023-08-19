@@ -20,7 +20,7 @@ const FoodCard = ({ item }) => {
         if (user) {
 
             const cartItem = { menuItemId: _id, name, image, price, email: user.email }
-            console.log(cartItem)
+           
             fetch('http://localhost:5000/carts', {
                 method: 'POST',
                 headers: {

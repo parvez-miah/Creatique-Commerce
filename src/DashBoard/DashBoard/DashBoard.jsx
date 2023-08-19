@@ -1,6 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { FaBars, FaBorderAll, FaCalendarAlt, FaHome, FaShoppingCart, FaWallet, FaUtensilSpoon, FaUsers } from 'react-icons/fa'
+import { FaBars, FaBorderAll, FaRegListAlt, FaHome, FaShoppingCart, FaWallet, FaUtensilSpoon, FaUsers } from 'react-icons/fa'
 import { Link, Outlet } from 'react-router-dom'
 import './DashBoard.css'
 import useAdmin from '../../hooks/useAdmin'
@@ -32,7 +32,7 @@ const DashBoard = () => {
                             <li><Link><FaWallet></FaWallet> Payment History</Link></li>
                             <li><Link to="/dashboard/mycart"><FaShoppingCart></FaShoppingCart> My Cart</Link></li>
                             <li><Link to ='/dashboard/additem'><FaUtensilSpoon></FaUtensilSpoon> Add Item</Link></li>
-                            <li><Link to ='/dashboard/manageitems'><FaUtensilSpoon></FaUtensilSpoon> Manage Items</Link></li>
+                            <li><Link to='/dashboard/manageitems'><FaRegListAlt></FaRegListAlt> Manage Items</Link></li>
                             <li><Link to='/menu'><FaBars></FaBars> Menu</Link></li>
                             <div className="divider"></div>
                             <li><Link to="/dashboard/allusers"><FaUsers></FaUsers> All Users</Link></li>
