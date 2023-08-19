@@ -44,7 +44,9 @@ const AllUsers = () => {
     }
 
 
-    const handleDelete = user => {
+    const handleDelete = (user) => {
+
+
 
     }
 

@@ -22,10 +22,9 @@ const NavBar =()=>  {
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/menu'>Menu</Link></li>
         <li><Link to='/order'>Order</Link></li>
-        <li><Link to='/secret'>Secret</Link></li>
+       
         {
             user ? <>
-                <span>{user?.displayName}</span>
                 <button onClick={handleLogOut} className="btn btn-warning">LogOut</button>
             </> : <>
                 <li><Link to='/register'>Register</Link></li>

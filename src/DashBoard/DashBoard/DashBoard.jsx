@@ -31,10 +31,12 @@ const DashBoard = () => {
                             <li><Link to="/"><FaHome></FaHome>Home</Link></li>
                             <li><Link><FaWallet></FaWallet> Payment History</Link></li>
                             <li><Link to="/dashboard/mycart"><FaShoppingCart></FaShoppingCart> My Cart</Link></li>
-                            <li><Link><FaUtensilSpoon></FaUtensilSpoon> Add Item</Link></li>
-                            <li><Link to="/dashboard/allusers"><FaUsers></FaUsers> All Users</Link></li>
+                            <li><Link to ='/dashboard/additem'><FaUtensilSpoon></FaUtensilSpoon> Add Item</Link></li>
+                            <li><Link to ='/dashboard/manageitems'><FaUtensilSpoon></FaUtensilSpoon> Manage Items</Link></li>
                             <li><Link to='/menu'><FaBars></FaBars> Menu</Link></li>
                             <div className="divider"></div>
+                            <li><Link to="/dashboard/allusers"><FaUsers></FaUsers> All Users</Link></li>
+                            
 
                         </> :
 
