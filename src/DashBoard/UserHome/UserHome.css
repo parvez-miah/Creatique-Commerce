@@ -1,0 +1,54 @@
+
+.admin-home {
+    background-color: #f5f7fb;
+    padding: 20px;
+    min-height: 100vh;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.home-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.home-sections {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(250px, 1fr));
+    /* Default: 1 column */
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+
+    /* For desktop or large devices */
+    .home-sections {
+        grid-template-columns: repeat(3, minmax(250px, 1fr));
+    }
+}
+
+.home-section {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.section-title i {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.section-value {
+    font-size: 24px;
+    color: #2ecc71;
+}

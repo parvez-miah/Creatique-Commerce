@@ -41,8 +41,7 @@ const SocialLogin = () => {
   }
 
   return (
-    <div>
-      <div className="divider">OR</div>
+    <div style={{display:'flex', alignItems:'center', justifyContent:'center', marginTop:'-40px', marginBottom:'20px'}}>
       <button onClick={handleGoogleSignIn} className="btn">
         <FaGoogle></FaGoogle>
       </button>

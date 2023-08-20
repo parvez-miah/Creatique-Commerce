@@ -27,10 +27,9 @@ const DashBoard = () => {
                     {/* Sidebar content here */}
                     {
                         isAdmin ? <>
-                            <li><Link><FaHome></FaHome> Admin Home</Link></li>
+                            <li><Link to="/dashboard/admin-home"><FaHome></FaHome> Admin Home</Link></li>
                             <li><Link to="/"><FaHome></FaHome>Home</Link></li>
                             <li><Link><FaWallet></FaWallet> Payment History</Link></li>
-                            <li><Link to="/dashboard/mycart"><FaShoppingCart></FaShoppingCart> My Cart</Link></li>
                             <li><Link to ='/dashboard/additem'><FaUtensilSpoon></FaUtensilSpoon> Add Item</Link></li>
                             <li><Link to='/dashboard/manageitems'><FaRegListAlt></FaRegListAlt> Manage Items</Link></li>
                             <li><Link to='/menu'><FaBars></FaBars> Menu</Link></li>
@@ -41,7 +40,7 @@ const DashBoard = () => {
                         </> :
 
                             <>
-                                <li><Link><FaHome></FaHome> User Home</Link></li>
+                                <li><Link to="/dashboard/user-home"><FaHome></FaHome> User Home</Link></li>
                                 <li><Link to="/"><FaHome></FaHome>Home</Link></li>
                                 <li><Link to="/dashboard/mycart"><FaShoppingCart></FaShoppingCart> My Cart</Link></li>
                                 <li><Link to='/order'> <FaBorderAll></FaBorderAll>Order</Link></li>
