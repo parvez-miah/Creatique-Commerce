@@ -1,23 +1,19 @@
 import React, { useEffect, useState } from 'react'
+import { Table, Thead, Tbody, Tr, Th, Td, TableCaption, TableContainer, IconButton } from '@chakra-ui/react';
+import { CopyIcon } from '@chakra-ui/icons';
 import {
-    Table,
-    Thead,
-    Tbody,
-    Tfoot,
-    Tr,
-    Th,
-    Td,
-    TableCaption,
-    TableContainer,
+    Alert,
+    AlertIcon,
+    AlertTitle,
+    AlertDescription,
 } from '@chakra-ui/react'
 
 const PaymentHistory = () => {
-
     const [copySuccess, setCopySuccess] = useState(false);
     const [paymentHistory, setPaymentHistory] = useState([]);
 
-    const copyToClipboard = () => {
-        navigator.clipboard.writeText(transactionId)
+    const copyToClipboard = (text) => {
+        navigator.clipboard.writeText(text)
             .then(() => {
                 setCopySuccess(true);
             })
@@ -27,41 +23,48 @@ const PaymentHistory = () => {
     };
 
     useEffect(() => {
-        fetch('https://creatique-commerce-server.vercel.app/payments')
+        fetch('http://localhost:5000/payments')
             .then(res => res.json())
             .then(data => setPaymentHistory(data))
-    }, [])
-
-
-
+    }, []);
 
     return (
-        <TableContainer className='w-full p-12'>
-            <Table variant='striped' colorScheme='teal'>
-                <TableCaption>All We Have!</TableCaption>
-                <Thead>
-                    <Tr>
-                        <Th>Email</Th>
-                        <Th>TransactionId</Th>
-                        
-                    </Tr>
-                </Thead>
-                <Tbody>
-
-                {
-                        paymentHistory.map(payments => <Tr key={payments._id}>
-                            <Td>{payments.email}</Td>
-                            <Td>{payments.transactionId}</Td>
-                            
-                        </Tr> )
-                }
+       <div>
+            {copySuccess&& <Alert status='success'>
+                <AlertIcon />
+               TransactionId copied!
+            </Alert>}
+            <TableContainer className='w-full p-12'>
+                <Table variant='striped' colorScheme='teal'>
                   
+                    <TableCaption>All We Have!</TableCaption>
+                    <Thead>
+                        <Tr>
+                            <Th>Email</Th>
+                            <Th>TransactionId</Th>
+                            <Th>Copy</Th> {/* New column for the copy button */}
+                        </Tr>
+                    </Thead>
+                    <Tbody>
+                        {paymentHistory.map(payments => (
+                            <Tr key={payments._id}>
+                                <Td>{payments.email}</Td>
+                                <Td>{payments.transactionId}</Td>
+                                <Td>
+                                    <IconButton
+                                        aria-label="Copy"
+                                        icon={<CopyIcon />}
+                                        onClick={() => copyToClipboard(payments.transactionId)}
+                                    />
 
-                </Tbody>
-
-            </Table>
-        </TableContainer>
-    )
+                                </Td>
+                            </Tr>
+                        ))}
+                    </Tbody>
+                </Table>
+            </TableContainer>
+       </div>
+    );
 }
 
-export default PaymentHistory
+export default PaymentHistory;

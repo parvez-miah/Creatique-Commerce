@@ -42,6 +42,8 @@ const DashBoard = () => {
                             <li><Link to='/dashboard/additem'><FaUtensilSpoon></FaUtensilSpoon> Add Item</Link></li>
                             <li><Link to='/dashboard/manageitems'><FaRegListAlt></FaRegListAlt> Manage Items</Link></li>
                             <li><Link to='/menu'><FaBars></FaBars> Menu</Link></li>
+                            <li><Link to='/dashboard/all-users'><FaUsers></FaUsers>All Users</Link></li>
+
                             <div className="divider"></div>
                             <li>  <Button onClick={handleLogOut} colorScheme='teal' size='xs'>
                                 LogOut

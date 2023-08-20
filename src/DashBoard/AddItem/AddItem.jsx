@@ -4,6 +4,7 @@ import SectionTitle from '../../Pages/Shared/SectionTitle/SectionTitle'
 import { useForm } from 'react-hook-form';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
+import { Button, ButtonGroup } from '@chakra-ui/react'
 
 const img_hosting_token = import.meta.env.VITE_Image_Upload_token;
 
@@ -110,7 +111,7 @@ const AddItem = () => {
                     <input type="file"  {...register("image", { required: true })} className="file-input file-input-bordered w-full  " />
 
                 </div>
-                <button className="btn btn-outline btn-primary mt-6">  <input type="submit" value="Submit" /></button>
+                <Button type="submit" colorScheme='blue' marginTop="20px">Button</Button>
 
 
             </form>

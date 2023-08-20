@@ -21,20 +21,20 @@ const {user} = useAuth();
   const [axiosSecure] = useAxiosSecure()
 
   const { data: users = [], refetch } = useQuery(['users'], async () => {
-    const res = await useAxiosSecure.get('https://creatique-commerce-server.vercel.app/users')
+    const res = await useAxiosSecure.get('http://localhost:5000/users')
     return res.data;
 
   });
 
   useEffect(() => {
-    fetch('https://creatique-commerce-server.vercel.app/allitems')
+    fetch('http://localhost:5000/allitems')
       .then(res => res.json())
       .then(data => setAllItems(data))
   }, []);
 
 
   useEffect(()=>{
-    fetch('https://creatique-commerce-server.vercel.app/payments')
+    fetch('http://localhost:5000/payments')
     .then(res=> res.json())
     .then(data=> setPayment(data))
   },[]);

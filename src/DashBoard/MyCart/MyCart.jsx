@@ -38,7 +38,7 @@ const MyCart = () => {
     .then((result) => {
       if (result.isConfirmed) {
 
-        fetch(`https://creatique-commerce-server.vercel.app/carts/${item._id}`,{
+        fetch(`http://localhost:5000/carts/${item._id}`,{
           method:'DELETE'
         })
 
