@@ -17,7 +17,7 @@ const SocialLogin = () => {
         const loggedInUser = result.user;
         const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email }
         console.log('user profile info updated');
-        fetch('http://localhost:5000/users', {
+        fetch('https://creatique-commerce-server.vercel.app/users', {
           method: 'POST',
           headers: {
             'content-type': 'application/json'

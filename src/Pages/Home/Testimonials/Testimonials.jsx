@@ -15,7 +15,7 @@ const Testimonials = ({ props }) => {
     const [loader, setLoader] = useState(true)
 
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://creatique-commerce-server.vercel.app/reviews')
             .then(res => res.json())
             .then(data => {
                 setReviews(data)

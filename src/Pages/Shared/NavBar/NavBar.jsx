@@ -167,7 +167,7 @@ export default function NavBar() {
                                         transform: "scale(1.2)",
                                     }}>
                                     <Link to='/'>Home</Link>
-
+l
                                 </Button>
                                 <Button onClick={isOpen ? onClose : onOpen}
                                     _hover={{
