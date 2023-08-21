@@ -1,18 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import {
-    Table,
-    Thead,
-    Tbody,
-    Tr,
-    Th,
-    Td,
-    TableCaption,
-    TableContainer,
     IconButton,
     Alert,
     AlertIcon,
 } from '@chakra-ui/react';
 import { CopyIcon } from '@chakra-ui/icons';
+import { Helmet } from 'react-helmet-async';
 
 const PaymentHistory = () => {
     const [copySuccess, setCopySuccess] = useState(false);
@@ -22,6 +15,9 @@ const PaymentHistory = () => {
         navigator.clipboard.writeText(text)
             .then(() => {
                 setCopySuccess(true);
+                setTimeout(() => {
+                    setCopySuccess(false);
+                }, 2000);
             })
             .catch((error) => {
                 console.error('Copy to clipboard failed: ', error);
@@ -29,46 +25,52 @@ const PaymentHistory = () => {
     };
 
     useEffect(() => {
-        fetch('http://localhost:5000/payments')
+        fetch('https://creatique-commerce-server.vercel.app/payments')
             .then((res) => res.json())
             .then((data) => setPaymentHistory(data));
     }, []);
 
     return (
-        <div>
+        <div style={{marginTop:'90px'}}>
             {copySuccess && (
                 <Alert status='success'>
                     <AlertIcon />
                     TransactionId copied!
                 </Alert>
             )}
-            <TableContainer p={[2, 6, 12]} overflowX='auto'>
-                <Table variant='striped' colorScheme='teal'>
-                    <TableCaption>That's all we Have!</TableCaption>
-                    <Thead>
-                        <Tr>
-                            <Th>Email</Th>
-                            <Th>TransactionId</Th>
-                            <Th>Copy</Th>
-                        </Tr>
-                    </Thead>
-                    <Tbody>
-                        {paymentHistory.map((payments) => (
-                            <Tr key={payments._id}>
-                                <Td fontSize={['sm', 'md']}>{payments.email}</Td>
-                                <Td fontSize={['sm', 'md']}>{payments.transactionId}</Td>
-                                <Td>
+            <Helmet>
+                <title> Payment History | Creatique Commerce </title>
+                <link rel="canonical" href="https://www.tacobell.com/" />
+            </Helmet>
+            <div className="overflow-x-auto">
+                <table className="table table-zebra w-full">
+                    {/* head */}
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Transaction ID</th>
+                            <th>Copy ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {paymentHistory.map((payments, index) => (
+                            <tr key={index}>
+                                <td>{index + 1}</td>
+                                <td>{payments.email}</td>
+                                <td>{payments.transactionId}</td>
+                                <td>
                                     <IconButton
                                         aria-label='Copy'
                                         icon={<CopyIcon />}
                                         onClick={() => copyToClipboard(payments.transactionId)}
                                     />
-                                </Td>
-                            </Tr>
+                                </td>
+                            </tr>
                         ))}
-                    </Tbody>
-                </Table>
-            </TableContainer>
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };

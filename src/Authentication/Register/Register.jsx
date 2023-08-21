@@ -41,6 +41,10 @@ const Register = () => {
 
     return (
         <div className="font p-12">
+            <Helmet>
+                <title>Registration | Creatique Commerce </title>
+                <link rel="canonical" href="https://www.tacobell.com/" />
+            </Helmet>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="container">
                     <h1 className="text-blue-500 text-2xl">Register</h1>

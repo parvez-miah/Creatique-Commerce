@@ -10,6 +10,7 @@ import './UserHome.css'
 import useAuth from '../../hooks/useAuth';
 import usePayment from '../../hooks/usePayment';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const UserHome = () => {
 
@@ -28,6 +29,10 @@ const UserHome = () => {
 
   return (
     <div className="admin-home">
+      <Helmet>
+        <title>User DashBoard | Creatique Commerce </title>
+        <link rel="canonical" href="https://www.tacobell.com/" />
+      </Helmet>
       <h1 className="home-title">User Dashboard</h1>
 
       <div className="home-sections">

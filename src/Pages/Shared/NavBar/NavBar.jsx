@@ -100,6 +100,7 @@ export default function NavBar() {
                                         </button>
                                     </Link>  </>
                                 }
+                                
                             </HStack>
                         </HStack>
                     </Flex>

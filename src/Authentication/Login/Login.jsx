@@ -5,6 +5,7 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { Button } from '@chakra-ui/react';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
     const { signIn, error, loading, logOut } = useContext(AuthContext);
@@ -39,6 +40,10 @@ const Login = () => {
 
     return (
         <Container>
+            <Helmet>
+                <title>Login | Creatique Commerce </title>
+                <link rel="canonical" href="https://www.tacobell.com/" />
+            </Helmet>
             <div className="font p-12">
                 <form onSubmit={handleLogin}>
                     <div className="container">

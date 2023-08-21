@@ -9,6 +9,7 @@ import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import useAuth from '../../hooks/useAuth';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const AdminHome = () => {
 
@@ -21,20 +22,20 @@ const {user} = useAuth();
   const [axiosSecure] = useAxiosSecure()
 
   const { data: users = [], refetch } = useQuery(['users'], async () => {
-    const res = await useAxiosSecure.get('http://localhost:5000/users')
+    const res = await useAxiosSecure.get('https://creatique-commerce-server.vercel.app/users')
     return res.data;
 
   });
 
   useEffect(() => {
-    fetch('http://localhost:5000/allitems')
+    fetch('https://creatique-commerce-server.vercel.app/allitems')
       .then(res => res.json())
       .then(data => setAllItems(data))
   }, []);
 
 
   useEffect(()=>{
-    fetch('http://localhost:5000/payments')
+    fetch('https://creatique-commerce-server.vercel.app/payments')
     .then(res=> res.json())
     .then(data=> setPayment(data))
   },[]);
@@ -46,6 +47,10 @@ const {user} = useAuth();
 
   return (
     <div className="admin-home">
+      <Helmet>
+        <title>Admin Dashboard | Creatique Commerce </title>
+        <link rel="canonical" href="https://www.tacobell.com/" />
+      </Helmet>
       <h1 className="home-title">Admin Dashboard</h1>
 
       <div className="home-sections">

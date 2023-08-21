@@ -62,7 +62,7 @@ const AuthProvider = ({ children }) => {
             // get and set token
 
             if (currentUser) {
-                axios.post('http://localhost:5000/jwt', {
+                axios.post('https://creatique-commerce-server.vercel.app/jwt', {
                     email: currentUser.email
                 })
                     .then(data => {

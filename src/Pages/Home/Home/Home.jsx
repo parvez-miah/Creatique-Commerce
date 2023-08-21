@@ -15,12 +15,12 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading delay for demonstration purposes
+
     const loadingTimeout = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
 
-    // Clean up the timeout on unmount
+   
     return () => clearTimeout(loadingTimeout);
   }, []);
 

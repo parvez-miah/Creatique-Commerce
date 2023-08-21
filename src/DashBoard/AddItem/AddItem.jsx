@@ -4,6 +4,7 @@ import useAxiosSecure from '../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
 import { Button } from '@chakra-ui/react';
 import { AiOutlineFileAdd } from 'react-icons/ai'; 
+import { Helmet } from 'react-helmet-async';
 
 const img_hosting_token = import.meta.env.VITE_Image_Upload_token;
 
@@ -47,6 +48,10 @@ const AddItem = () => {
 
     return (
         <div className='w-full p-6 md:p-12'>
+            <Helmet>
+                <title>Add an Item | Creatique Commerce </title>
+                <link rel="canonical" href="https://www.tacobell.com/" />
+            </Helmet>
             <h2 className="text-red-500 text-3xl font-semibold p-5 flex items-center mt-8">
                 <AiOutlineFileAdd className="text-black" />
                 <span className="ml-2">Add an Item</span>
