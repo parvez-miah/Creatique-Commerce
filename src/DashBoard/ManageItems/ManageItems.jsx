@@ -38,7 +38,7 @@ const ManageItems = () => {
     }
 
     return (
-        <div className='w-full'>
+        <div className='w-full mt-20'>
             <Helmet>
                 <title>Manage Items | Creatique Commerce </title>
                 <link rel="canonical" href="https://www.tacobell.com/" />

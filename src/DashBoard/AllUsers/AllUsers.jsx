@@ -24,7 +24,7 @@ const AllUsers = () => {
     };
 
     return (
-        <div className='w-full p-4 md:p-8 lg:p-12'>
+        <div className='w-full p-4 md:p-8 lg:p-12 mt-20'>
             <Helmet>
                 <title>All Users | Creatique Commerce </title>
                 <link rel="canonical" href="https://www.tacobell.com/" />

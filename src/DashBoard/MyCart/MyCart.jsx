@@ -78,7 +78,7 @@ const MyCart = () => {
 
       {/*  */}
 
-      <div className="overflow-x-auto w-full">
+      <div className="overflow-x-auto w-full mt-22">
         <table className="table">
           {/* head */}
           <thead>

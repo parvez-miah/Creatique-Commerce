@@ -47,7 +47,7 @@ const AddItem = () => {
     };
 
     return (
-        <div className='w-full p-6 md:p-12'>
+        <div className='w-full p-6 md:p-12 mt-20'>
             <Helmet>
                 <title>Add an Item | Creatique Commerce </title>
                 <link rel="canonical" href="https://www.tacobell.com/" />
