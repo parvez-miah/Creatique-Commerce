@@ -19,8 +19,6 @@ import Payment from "../DashBoard/Payment/Payment";
 import AdminHome from "../DashBoard/AdminHome/AdminHome";
 import UserHome from "../DashBoard/UserHome/UserHome";
 import PaymentHistory from "../DashBoard/PaymentHistory/PaymentHistory";
-import PlaceholderData from "../PlaceholderData";
-
 
 
 const router = createBrowserRouter([

@@ -45,7 +45,10 @@ const Menu = () => {
       <Helmet>
         <title>Menu | Creatique Commerce</title>
       </Helmet>
-      <h2 style={{ fontSize: '30px', fontWeight: '700', padding: '20px', display: 'flex', color: "red", marginTop: '30px' }}>  <FaHotjar></FaHotjar>  <span style={{color:'black'}}> Trending Menu</span></h2>
+      <h2 className="text-red-500 text-3xl font-semibold p-5 flex items-center mt-8">
+        <FaHotjar className="text-black" />
+        <span className="ml-2">Trending Menu</span>
+      </h2>
 
       <MenuCategory items={offred}
       >

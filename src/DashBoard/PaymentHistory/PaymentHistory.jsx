@@ -1,12 +1,18 @@
-import React, { useEffect, useState } from 'react'
-import { Table, Thead, Tbody, Tr, Th, Td, TableCaption, TableContainer, IconButton } from '@chakra-ui/react';
-import { CopyIcon } from '@chakra-ui/icons';
+import React, { useEffect, useState } from 'react';
 import {
+    Table,
+    Thead,
+    Tbody,
+    Tr,
+    Th,
+    Td,
+    TableCaption,
+    TableContainer,
+    IconButton,
     Alert,
     AlertIcon,
-    AlertTitle,
-    AlertDescription,
-} from '@chakra-ui/react'
+} from '@chakra-ui/react';
+import { CopyIcon } from '@chakra-ui/icons';
 
 const PaymentHistory = () => {
     const [copySuccess, setCopySuccess] = useState(false);
@@ -24,42 +30,39 @@ const PaymentHistory = () => {
 
     useEffect(() => {
         fetch('http://localhost:5000/payments')
-            .then(res => res.json())
-            .then(data => setPaymentHistory(data))
+            .then((res) => res.json())
+            .then((data) => setPaymentHistory(data));
     }, []);
 
     return (
-
-
-        
         <div>
-            {copySuccess && <Alert status='success'>
-                <AlertIcon />
-                TransactionId copied!
-            </Alert>}
-            <TableContainer className='p-12'>
-                <Table variant='striped' colorScheme='teal' overflowX="scroll">
-
+            {copySuccess && (
+                <Alert status='success'>
+                    <AlertIcon />
+                    TransactionId copied!
+                </Alert>
+            )}
+            <TableContainer p={[2, 6, 12]} overflowX='auto'>
+                <Table variant='striped' colorScheme='teal'>
                     <TableCaption>That's all we Have!</TableCaption>
                     <Thead>
                         <Tr>
                             <Th>Email</Th>
                             <Th>TransactionId</Th>
-                            <Th>Copy</Th> {/* New column for the copy button */}
+                            <Th>Copy</Th>
                         </Tr>
                     </Thead>
                     <Tbody>
-                        {paymentHistory.map(payments => (
+                        {paymentHistory.map((payments) => (
                             <Tr key={payments._id}>
-                                <Td>{payments.email}</Td>
-                                <Td>{payments.transactionId}</Td>
+                                <Td fontSize={['sm', 'md']}>{payments.email}</Td>
+                                <Td fontSize={['sm', 'md']}>{payments.transactionId}</Td>
                                 <Td>
                                     <IconButton
-                                        aria-label="Copy"
+                                        aria-label='Copy'
                                         icon={<CopyIcon />}
                                         onClick={() => copyToClipboard(payments.transactionId)}
                                     />
-
                                 </Td>
                             </Tr>
                         ))}
@@ -68,6 +71,6 @@ const PaymentHistory = () => {
             </TableContainer>
         </div>
     );
-}
+};
 
 export default PaymentHistory;
