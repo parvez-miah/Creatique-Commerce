@@ -11,13 +11,13 @@ const AllUsers = () => {
 
     const { data: users = [], isLoading, refetch } = useQuery(['users'], async () => {
         const res = await axiosSecure.get(
-            'https://creatique-commerce-server.vercel.app/users'
+            'https://creatique-commerce-server-parvez-miah.vercel.app/users'
         );
         return res.data;
     });
 
     const handleMakeAdmin = user => {
-        fetch(`https://creatique-commerce-server.vercel.app/users/admin/${user._id}`, {
+        fetch(`https://creatique-commerce-server-parvez-miah.vercel.app/users/admin/${user._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())

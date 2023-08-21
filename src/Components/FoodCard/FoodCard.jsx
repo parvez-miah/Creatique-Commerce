@@ -22,7 +22,7 @@ const FoodCard = ({ item }) => {
 
             const cartItem = { menuItemId: _id, name, image, price, email: user.email }
            
-            fetch('https://creatique-commerce-server.vercel.app/carts', {
+            fetch('https://creatique-commerce-server-parvez-miah.vercel.app/carts', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

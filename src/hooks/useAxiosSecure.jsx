@@ -6,7 +6,7 @@ import useAuth from './useAuth';
 // added it before for dont;t call several times
 
 const axiosSecure = axios.create({
-    baseURL: 'https://creatique-commerce-server.vercel.app',
+    baseURL: 'https://creatique-commerce-server-parvez-miah.vercel.app',
 });
 
 const useAxiosSecure = () => {

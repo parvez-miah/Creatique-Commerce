@@ -47,7 +47,7 @@ const MyCart = () => {
     .then((result) => {
       if (result.isConfirmed) {
 
-        fetch(`https://creatique-commerce-server.vercel.app/carts/${item._id}`,{
+        fetch(`https://creatique-commerce-server-parvez-miah.vercel.app/carts/${item._id}`,{
           method:'DELETE'
         })
 

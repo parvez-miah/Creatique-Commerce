@@ -28,7 +28,7 @@ const PaymentHistory = () => {
     };
 
     useEffect(() => {
-        fetch('https://creatique-commerce-server.vercel.app/payments')
+        fetch('https://creatique-commerce-server-parvez-miah.vercel.app/payments')
             .then((res) => res.json())
             .then((data) => {
                 setPaymentHistory(data);

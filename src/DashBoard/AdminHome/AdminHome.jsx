@@ -22,20 +22,20 @@ const {user} = useAuth();
   const [axiosSecure] = useAxiosSecure()
 
   const { data: users = [], refetch } = useQuery(['users'], async () => {
-    const res = await useAxiosSecure.get('https://creatique-commerce-server.vercel.app/users')
+    const res = await useAxiosSecure.get('https://creatique-commerce-server-parvez-miah.vercel.app/users')
     return res.data;
 
   });
 
   useEffect(() => {
-    fetch('https://creatique-commerce-server.vercel.app/allitems')
+    fetch('https://creatique-commerce-server-parvez-miah.vercel.app/allitems')
       .then(res => res.json())
       .then(data => setAllItems(data))
   }, []);
 
 
   useEffect(()=>{
-    fetch('https://creatique-commerce-server.vercel.app/payments')
+    fetch('https://creatique-commerce-server-parvez-miah.vercel.app/payments')
     .then(res=> res.json())
     .then(data=> setPayment(data))
   },[]);

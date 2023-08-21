@@ -9,7 +9,7 @@ const useMenu = () => {
     // const [loading, setLoading] = useState(false);
     // useEffect(() => {
 
-    //   fetch('https://creatique-commerce-server.vercel.app/menu')
+    //   fetch('https://creatique-commerce-server-parvez-miah.vercel.app/menu')
     //         .then(res => res.json())
     //         .then(data =>{
     //             setMenu(data);
@@ -26,7 +26,7 @@ const useMenu = () => {
 
     queryKey: ['menu'],
     queryFn: async () => {
-      const res = await fetch('https://creatique-commerce-server.vercel.app/menu');
+      const res = await fetch('https://creatique-commerce-server-parvez-miah.vercel.app/menu');
       return res.json();
     }
   })
