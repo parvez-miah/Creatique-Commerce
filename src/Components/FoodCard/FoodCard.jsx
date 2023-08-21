@@ -4,6 +4,7 @@ import { AuthContext } from '../../Provider/authProvider';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import useCart from '../../hooks/useCart';
+import { Card, CardHeader, ButtonGroup, Button, CardBody, CardFooter, Stack, Heading, Divider, Text, Image } from '@chakra-ui/react'
 
 const FoodCard = ({ item }) => {
 
@@ -65,19 +66,37 @@ const FoodCard = ({ item }) => {
 
     return (
 
-        <div className="card w-96 bg-base-100 shadow-xl">
+        <Card maxW='sm' display="flex" alignItems="center" justifyContent="center" paddingLeft="15px" marginLeft="20px">
+            <CardBody>
+                <Image
+                    src={image}
+                    borderRadius='lg'
+                />
+                <Stack mt='6' spacing='3'>
+                    <Heading size='md'>{name}</Heading>
+                    <Text>
+                        This sofa is perfect for modern tropical spaces, baroque inspired
+                        spaces, earthy toned spaces and for people who love a chic design with a
+                        sprinkle of vintage design.
+                    </Text>
+                    <Text color='blue.600' fontSize='2xl'>
+                        ${price}
+                    </Text>
+                </Stack>
+            </CardBody>
+            <Divider />
+            <CardFooter>
+                <ButtonGroup spacing='2'>
+                    <Button variant='solid' colorScheme='blue'>
+                        Buy now
+                    </Button>
+                    <Button onClick={() => handleAddedCart(item)} variant='ghost' colorScheme='blue'>
+                        Add to cart
+                    </Button>
+                </ButtonGroup>
+            </CardFooter>
+        </Card>
 
-            <figure><img src={image} alt="Shoes" /></figure>
-            <p className='bg-slate-900 text-white absolute right-0 mr-4px-4 '>${price}</p>
-            <div className="card-body">
-                <h2 className="card-title flex flex-cols items-center ">{name}</h2>
-                <p>{recipe}</p>
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}  >
-                    <button onClick={() => handleAddedCart(item)} className="btn btn-primary">Add to cart</button>
-                </div>
-
-            </div>
-        </div>
     )
 }
 

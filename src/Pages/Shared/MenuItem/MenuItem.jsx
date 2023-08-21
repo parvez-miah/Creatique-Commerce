@@ -1,4 +1,7 @@
 
+import './MenuItem.css'
+
+
 
 const MenuItem = ({item})=>{
 
@@ -7,7 +10,7 @@ return(
 
     <div className=" flex space-x-4 m-6  ">
 
-    <img style={{borderRadius:'0 200px 200px 200px'}} className="w-[100px]" src={image} alt="" />
+    <img style={{borderRadius:'0 200px 200px 200px'}} className="w-[100px] , imageStyle" src={image} alt="" />
     <div>
     <h3>{name}</h3>
     <p>{recipe}</p>

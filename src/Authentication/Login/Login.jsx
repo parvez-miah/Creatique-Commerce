@@ -51,7 +51,7 @@ const Login = () => {
             <div className="font">
                 <form onSubmit={handleLogin}>
                     <div className="container">
-                        <h1 style={{ color: 'blue', fontSize: '25px' }}>Register</h1>
+                        <h1 style={{ color: 'blue', fontSize: '25px' }}>Login</h1>
                         <p>Please fill in this form to Login a account.</p>
                         <hr />
 

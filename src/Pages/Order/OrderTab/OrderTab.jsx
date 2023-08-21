@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import FoodCard from '../../../Components/FoodCard/FoodCard'
+import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
 
 const OrderTab = ({items}) => {
   return (

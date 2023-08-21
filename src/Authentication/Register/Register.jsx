@@ -70,7 +70,7 @@ const Register = () => {
                     <label htmlFor="psw"><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name="password"  {...register("password", { required: true })} id="psw" required />
 
-                    <label htmlFor="psw"><b>Photo URI</b></label>
+                    <label htmlFor="psw"><b>Profile Photo URL</b></label>
                     <input type="url" placeholder="Photo URL"  {...register("photoURL", { required: true })} id="psdw" required />
 
 

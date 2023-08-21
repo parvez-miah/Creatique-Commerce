@@ -5,6 +5,7 @@ import PopularMenu from '../PopularMenu/PopularMenu'
 import Featured from '../Featured/Featured'
 import Testimonials from '../Testimonials/Testimonials'
 import { Helmet } from 'react-helmet-async'
+import Blog from '../Blog/Blog'
 
 export default class Home extends Component {
   render() {
@@ -17,7 +18,7 @@ export default class Home extends Component {
       <HomeBanner></HomeBanner>
         <Category></Category>
         <PopularMenu></PopularMenu>
-        <Featured></Featured>
+        <Blog></Blog>
         <Testimonials></Testimonials>
       
       </div>

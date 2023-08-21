@@ -6,7 +6,7 @@ import useMenu from '../../../hooks/useMenu'
 const MenuCategory = ({items ,title,img}) => {
 
 
-  const [loading] = useMenu()
+  const [loading] = useMenu();
 
 
 

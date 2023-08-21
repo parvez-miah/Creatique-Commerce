@@ -1,0 +1,19 @@
+.blogelements {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+    padding: 30px   ;
+}
+.title-section{
+    padding: 20px;
+}
+
+@media only screen and (max-width: 600px) and (min-width: 400px) {
+    .blogelements {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+}

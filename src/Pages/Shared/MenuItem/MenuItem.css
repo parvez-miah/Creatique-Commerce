@@ -1,0 +1,7 @@
+@media only screen and (max-width: 600px) and (min-width: 375px) {
+    .imageStyle {
+       width: 100px;
+       height: 100px;
+    }
+
+}

@@ -29,15 +29,18 @@ const PaymentHistory = () => {
     }, []);
 
     return (
-       <div>
-            {copySuccess&& <Alert status='success'>
+
+
+        
+        <div>
+            {copySuccess && <Alert status='success'>
                 <AlertIcon />
-               TransactionId copied!
+                TransactionId copied!
             </Alert>}
-            <TableContainer className='w-full p-12'>
-                <Table variant='striped' colorScheme='teal'>
-                  
-                    <TableCaption>All We Have!</TableCaption>
+            <TableContainer className='p-12'>
+                <Table variant='striped' colorScheme='teal' overflowX="scroll">
+
+                    <TableCaption>That's all we Have!</TableCaption>
                     <Thead>
                         <Tr>
                             <Th>Email</Th>
@@ -63,7 +66,7 @@ const PaymentHistory = () => {
                     </Tbody>
                 </Table>
             </TableContainer>
-       </div>
+        </div>
     );
 }
 

@@ -2,6 +2,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
+import './Category.css'
 
 
 
@@ -19,46 +20,48 @@ export default function Category() {
 
 
     return (
-      <section>
-     <SectionTitle
-     heading={"Order Online"}
-     subHeading={"From 11am to 11pm"}
-     >
-     
-     </SectionTitle>
-            <div className='mb-16'>
-                <Swiper
-                    slidesPerView={4}
-                    spaceBetween={30}
-                    centeredSlides={true}
-                    pagination={{
-                        clickable: true,
-                    }}
-                    modules={[Pagination]}
-                    className="mySwiper"
+     <div className='fullCategory'>
+            <section>
+                <SectionTitle
+                    heading={"Order Online"}
+                    subHeading={"From 11am to 11pm"}
                 >
-                    <SwiperSlide><img src={slide1} alt="" />
-                        <h3 className='text-2xl uppercase text-center -mt-16 text-white'>Salads</h3>
 
-                    </SwiperSlide>
-                    <SwiperSlide><img src={slide2} alt="" />
-                        <h3 className='text-2xl uppercase text-center -mt-16 text-white'>Soups</h3>
+                </SectionTitle>
+                <div className='mb-16'>
+                    <Swiper
+                        slidesPerView={4}
+                        spaceBetween={30}
+                        centeredSlides={true}
+                        pagination={{
+                            clickable: true,
+                        }}
+                        modules={[Pagination]}
+                        className="mySwiper"
+                    >
+                        <SwiperSlide><img src={slide1} alt="" />
+                            <h3 className='text-2xl uppercase text-center -mt-16 text-white'>Salads</h3>
 
-                    </SwiperSlide>
+                        </SwiperSlide>
+                        <SwiperSlide><img src={slide2} alt="" />
+                            <h3 className='text-2xl uppercase text-center -mt-16 text-white'>Soups</h3>
+
+                        </SwiperSlide>
 
 
-                    <SwiperSlide><img src={slide3} alt="" />
-                        <h3 className='text-2xl uppercase text-center -mt-16 text-white'>Pizzas</h3>
+                        <SwiperSlide><img src={slide3} alt="" />
+                            <h3 className='text-2xl uppercase text-center -mt-16 text-white'>Pizzas</h3>
 
-                    </SwiperSlide>
-                    <SwiperSlide><img src={slide4} alt="" />
-                        <h3 className='text-2xl uppercase text-center -mt-16 text-white'>desserts</h3>
-                    </SwiperSlide>
-                    <SwiperSlide><img src={slide5} alt="" />
-                        <h3 className='text-2xl uppercase text-center -mt-16 text-white'>Salads</h3>
-                    </SwiperSlide>
-                </Swiper>
-            </div>
-      </section>
+                        </SwiperSlide>
+                        <SwiperSlide><img src={slide4} alt="" />
+                            <h3 className='text-2xl uppercase text-center -mt-16 text-white'>desserts</h3>
+                        </SwiperSlide>
+                        <SwiperSlide><img src={slide5} alt="" />
+                            <h3 className='text-2xl uppercase text-center -mt-16 text-white'>Salads</h3>
+                        </SwiperSlide>
+                    </Swiper>
+                </div>
+            </section>
+     </div>
     );
 }
