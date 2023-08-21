@@ -3,16 +3,13 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 import './Category.css'
-
-
+import { BiCategory } from 'react-icons/bi';
 
 import slide1 from '../../../assets/home/slide1.jpg';
 import slide2 from '../../../assets/home/slide2.jpg';
 import slide3 from '../../../assets/home/slide3.jpg';
 import slide4 from '../../../assets/home/slide4.jpg';
 import slide5 from '../../../assets/home/slide5.jpg';
-import SectionTitle from '../../Shared/SectionTitle/SectionTitle';
-
 
 
 export default function Category() {
@@ -22,12 +19,8 @@ export default function Category() {
     return (
      <div className='fullCategory'>
             <section>
-                <SectionTitle
-                    heading={"Order Online"}
-                    subHeading={"From 11am to 11pm"}
-                >
+                <h2 style={{ fontSize: '30px', fontWeight: '700', padding: '20px', display: 'flex', color: "red", marginTop: '30px' }}>  <BiCategory ></BiCategory>  <span style={{ color: 'black', marginLeft: '10px' }}> Top <span style={{color:'blue'}}>Category</span></span></h2>
 
-                </SectionTitle>
                 <div className='mb-16'>
                     <Swiper
                         slidesPerView={4}

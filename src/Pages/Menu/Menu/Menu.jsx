@@ -8,12 +8,30 @@ import Cover from '../Cover/Cover'
 import { Link } from 'react-router-dom'
 import { Button } from '@chakra-ui/react'
 import { useState } from 'react'
+import { useEffect } from 'react'
+import { FaHotjar } from 'react-icons/fa'
 
 const Menu = () => {
 
 
   const [menu] = useMenu();
   const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+
+    const handleResize = () => {
+      setIsMobile(innerWidth < 768);
+
+
+      window.addEventListener("resize", handleResize);
+
+      return () => {
+        window.removeEventListener("resize", handleResize)
+      }
+
+    }
+
+  }, [])
 
   const dessert = menu.filter(item => item.category === 'dessert')
   const soup = menu.filter(item => item.category === 'soup')
@@ -27,15 +45,7 @@ const Menu = () => {
       <Helmet>
         <title>Menu | Creatique Commerce</title>
       </Helmet>
-      <Cover className="coverImg" img={featuredbg} title="our-menu"></Cover>
-
-      <SectionTitle
-
-        subHeading="Dont miss"
-        heading="Today's offer"
-      >
-
-      </SectionTitle>
+      <h2 style={{ fontSize: '30px', fontWeight: '700', padding: '20px', display: 'flex', color: "red", marginTop: '30px' }}>  <FaHotjar></FaHotjar>  <span style={{color:'black'}}> Trending Menu</span></h2>
 
       <MenuCategory items={offred}
       >

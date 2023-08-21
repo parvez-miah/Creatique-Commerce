@@ -1,5 +1,4 @@
 import React, { Component, useEffect, useState } from 'react'
-import SectionTitle from '../../Shared/SectionTitle/SectionTitle'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -8,6 +7,8 @@ import '@smastrom/react-rating/style.css'
 import ContentLoader from "react-content-loader"
 import { Navigation } from 'swiper/modules';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FcRating } from 'react-icons/fc';
+
 
 const Testimonials = ({ props }) => {
 
@@ -31,11 +32,7 @@ const Testimonials = ({ props }) => {
 
         <section>
 
-            <SectionTitle
-                subHeading="What our Client Says"
-                heading="Testimonials"
-            >
-            </SectionTitle>
+            <h2 style={{ fontSize: '30px', fontWeight: '700', padding: '20px', display: 'flex', color: "red", marginTop: '30px' }}>  <FcRating ></FcRating>  <span style={{ color: 'black', marginLeft: '10px' }}> Top <span style={{ color: 'blue' }}>Ratings</span></span></h2>
 
             <div className='mb-20 m-10'>
                 <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
