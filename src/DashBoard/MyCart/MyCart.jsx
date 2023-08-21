@@ -4,6 +4,14 @@ import useCart from '../../hooks/useCart'
 import { FaTrashAlt } from 'react-icons/fa'
 import Swal from 'sweetalert2'
 import { Link } from 'react-router-dom'
+import {
+  Stat,
+  StatLabel,
+  StatNumber,
+  StatHelpText,
+  StatArrow,
+  StatGroup,
+} from '@chakra-ui/react'
 
 const MyCart = () => {
   // load all data
@@ -15,7 +23,8 @@ const MyCart = () => {
   const result = cart.reduce((sum, item) =>
     sum + item.price
     , 0);
-  
+
+  const price = parseFloat(result.toFixed(2))
 
 
 
@@ -66,19 +75,37 @@ const MyCart = () => {
         <title>My Cart | Creatique Commerce </title>
         <link rel="canonical" href="https://www.tacobell.com/" />
       </Helmet>
+      <div className='mb-12 mt-12'>
+        <StatGroup>
+          <Stat>
+            <StatLabel>Payable Amount</StatLabel>
+            <StatNumber>${price}</StatNumber>
+            <StatHelpText>
+              <StatArrow type='increase' />
+              23.36%
+            </StatHelpText>
+          </Stat>
 
-{/* Header Elements */}
-      <div className=' p-12 uppercase flex justify-evenly space-between height-[60px]'>
-
-        <h4 className="text-3xl">Total Items : <b>{cart.length}</b></h4>
-        <h4 className="text-3xl">Total Price : <b>${result.toFixed(2)}</b></h4>
-        <Link to ="/dashboard/pay"><button className="btn btn-warning btn-small">Pay</button></Link>
+          <Stat>
+            <StatLabel>Items</StatLabel>
+            <StatNumber>{cart.length}</StatNumber>
+            <StatHelpText>
+              <StatArrow type='decrease' />
+              9.05%
+            </StatHelpText>
+          </Stat>
+        </StatGroup>
       </div>
+{/* Header Elements */}
+      
+       <div className='mb-12 mt-12'>
+        <Link to="/dashboard/pay"><button className="btn btn-warning btn-small">Pay Now</button></Link>
+       </div>
 
 
       {/*  */}
 
-      <div className="overflow-x-auto w-full mt-22">
+      <div className="overflow-x-auto w-3/2 mt-22">
         <table className="table">
           {/* head */}
           <thead>

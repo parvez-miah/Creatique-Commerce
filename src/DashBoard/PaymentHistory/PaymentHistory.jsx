@@ -38,10 +38,13 @@ const PaymentHistory = () => {
 
     return (
         <div>
-            <h2 className="text-red-500 text-3xl font-semibold p-5 flex items-center mt-8">
-                <MdPayments className="text-black" />
-                <span className="ml-2">Payments</span>
-            </h2>
+         <div className='mt-30'>
+         
+                <h2 className="text-red-500 text-3xl font-semibold p-5 flex items-center ">
+                    <MdPayments className="text-black" />
+                    <span className="ml-2">Payments</span>
+                </h2>
+         </div>
             <div style={{ marginTop: '90px' }}>
                 {copySuccess && (
                     <Alert status='success'>

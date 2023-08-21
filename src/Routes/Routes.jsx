@@ -19,6 +19,7 @@ import Payment from "../DashBoard/Payment/Payment";
 import AdminHome from "../DashBoard/AdminHome/AdminHome";
 import UserHome from "../DashBoard/UserHome/UserHome";
 import PaymentHistory from "../DashBoard/PaymentHistory/PaymentHistory";
+import TestTable from "../DashBoard/MyCart/TestTable";
 
 
 const router = createBrowserRouter([
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
             {
                 path: '/menu',
                 element: <Menu></Menu>
+            },
+            {
+                path: '/table',
+                element: <TestTable></TestTable>
             },
            
             {

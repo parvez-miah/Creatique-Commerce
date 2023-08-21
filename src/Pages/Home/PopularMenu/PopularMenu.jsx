@@ -2,6 +2,8 @@ import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import MenuItem from "../../Shared/MenuItem/MenuItem";
 import useMenu from "../../../hooks/useMenu";
 import { FaOpencart } from "react-icons/fa";
+import { Button } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 
 
@@ -28,6 +30,9 @@ const PopularMenu = () => {
                     </MenuItem>)
                 }
             </div>
+            <Link to='/order'>
+                <Button marginBottom="20px" display="flex" alignSelf="center" justifyContent="center" marginLeft="12px" colorScheme='telegram'>Order Now</Button>
+            </Link>
 
         </section>
 

@@ -33,7 +33,7 @@ const UserHome = () => {
         <title>User DashBoard | Creatique Commerce </title>
         <link rel="canonical" href="https://www.tacobell.com/" />
       </Helmet>
-      <h1 className="home-title">User Dashboard</h1>
+      <h1 className="home-title ">User Dashboard</h1>
 
       <div className="home-sections">
         <div className="home-section">

@@ -4,23 +4,40 @@ import { FaTrashAlt, FaUserShield } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { Helmet } from 'react-helmet-async';
+import Loader from '../../Pages/Shared/Loader/Loader';
 
 const AllUsers = () => {
     const [axiosSecure] = useAxiosSecure();
 
-    const { data: users = [], refetch } = useQuery(['users'], async () => {
+    const { data: users = [], isLoading, refetch } = useQuery(['users'], async () => {
         const res = await axiosSecure.get(
             'https://creatique-commerce-server.vercel.app/users'
         );
         return res.data;
     });
 
-    const handleMakeAdmin = (user) => {
-        // ... (same as your existing code)
-    };
+    const handleMakeAdmin = user => {
+        fetch(`https://creatique-commerce-server.vercel.app/users/admin/${user._id}`, {
+            method: 'PATCH'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount) {
+                    refetch();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `${user.name} is an Admin Now!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+    }
 
     const handleDelete = (user) => {
-        // ... (same as your existing code)
+      
     };
 
     return (
@@ -29,58 +46,58 @@ const AllUsers = () => {
                 <title>All Users | Creatique Commerce </title>
                 <link rel="canonical" href="https://www.tacobell.com/" />
             </Helmet>
-            <h3 className='text-xl md:text-3xl font-semibold my-6 md:my-12'>
-                TOTAL USERS: {users.length}
-            </h3>
 
-            <div className='overflow-x-auto'>
-                <table className='table'>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Roll</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {users.map((user, index) => (
-                            <tr key={user._id} className=''>
-                                <th>{index + 1}</th>
-                                <td>{user.name}</td>
-                                <td>{user.email}</td>
-                                <td>
-                                    {user.role === 'admin' ? (
-                                        'admin'
-                                    ) : (
-                                        <>
-                                            <button
-                                                onClick={() =>
-                                                    handleMakeAdmin(user)
-                                                }
-                                                className='btn btn-ghost bg-orange-600 text-white'
-                                            >
-                                                <FaUserShield />
-                                            </button>
-                                        </>
-                                    )}
-                                </td>
-                                <td>
-                                    <button
-                                        onClick={() => handleDelete(user)}
-                                        className='btn btn-ghost bg-red-600 text-white'
-                                    >
-                                        <FaTrashAlt />
-                                    </button>
-                                </td>
+            {isLoading ? (
+               <Loader></Loader>
+            ) : (
+                    <div style={{ overflowX: 'auto', padding: '20px' }}>
+                        <h3 className='text-xl md:text-3xl font-semibold my-6 md:my-12'>
+                            TOTAL USERS: {users.length}
+                        </h3>
+                        <table>
+                            <tr>
+                                <th>#</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Delete</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
+                            {users.map((user, index) => (
+                                <tr key={user._id} className=''>
+                                    <td>{index + 1}</td>
+                                    <td>{user.email}</td>
+                                    <td>
+                                        {user.role === 'admin' ? (
+                                            'admin'
+                                        ) : (
+                                            <>
+                                                <button
+                                                    onClick={() =>
+                                                        handleMakeAdmin(user)
+                                                    }
+                                                    className='btn btn-ghost bg-orange-600 text-white'
+                                                >
+                                                    <FaUserShield />
+                                                </button>
+                                            </>
+                                        )}
+                                    </td>
+                                    <td>
+                                        <button
+                                            onClick={() => handleDelete(user)}
+                                            className='btn btn-ghost bg-red-600 text-white'
+                                        >
+                                            <FaTrashAlt />
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))}
+                            {/* End of your existing map function */}
+                        </table>
+                    </div>
+            )}
         </div>
     );
 };
+
 
 export default AllUsers;

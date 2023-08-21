@@ -1,0 +1,12 @@
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+th{
+    text-align: left;
+    background-color: blanchedalmond;
+}
+ table{
+    border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+ }
